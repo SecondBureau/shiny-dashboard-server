@@ -56,5 +56,9 @@ Shinydashboard::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
   
+  resources :charts
   match '/static/chart.png' => 'api#static'
+  match '/dynamic/:id' => 'api#dynamic'
+  match '/chartfeed/:id' => 'api#chart', :format => 'atom'
+  match '/chartsfeed' => 'api#charts', :format => 'atom'
 end
