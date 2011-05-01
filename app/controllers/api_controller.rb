@@ -31,7 +31,7 @@ class ApiController < ApplicationController
   
   def charts
     Chart.delete_all
-    (1..4).each {|i| Chart.create(:title => "Chart #{i}", :url => "http://localhost:3000/chartfeed/#{i}")}
+    (1..4).each {|i| Chart.create(:title => "Chart #{i}", :url => "http://shinydashboard-server.heroku.com/chartfeed/#{i}")}
     
     respond_to do |format|
       format.atom
@@ -56,7 +56,7 @@ class ApiController < ApplicationController
 
      end.gsub('|', '%7c')
 
-     @identifier = "http://localhost:3000/chartfeed/#{params[:id]}"
+     @identifier = "http://shinydashboard-server.heroku.com/chartfeed/#{params[:id]}"
 
      respond_to do |format|
        format.atom
